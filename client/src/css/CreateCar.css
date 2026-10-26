@@ -1,0 +1,323 @@
+/* Shared styles for all four car pages (Create, View, Details, Edit) */
+
+:root {
+  --red: #7a0a10;
+  --red-hover: #9c0f17;
+  --panel: rgba(0, 0, 0, 0.88);
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  padding: 12px 20px;
+  background: var(--red);
+  color: white;
+  border: 2px solid transparent;
+  border-radius: 4px;
+  font-weight: bold;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+
+.btn:hover,
+.btn.active {
+  border-color: white;
+  background: var(--red-hover);
+}
+
+/* ---------- Page panel ---------- */
+.page {
+  position: relative;
+  max-width: 1100px;
+  margin: 20px auto;
+  padding: 24px;
+  background: var(--panel);
+  border-radius: 6px;
+  color: white;
+}
+
+.page-body {
+  display: flex;
+  gap: 30px;
+  margin-top: 30px;
+}
+
+.side {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 220px;
+}
+
+.side-buttons {
+  display: flex;
+  gap: 14px;
+}
+
+.price {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin: 0;
+}
+
+.price-box {
+  margin-top: auto;
+  padding: 14px 24px;
+  background: var(--red);
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.error {
+  color: #ff8080;
+  font-weight: bold;
+}
+
+/* ---------- Create page top bar ---------- */
+.create-bar {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+}
+
+.create-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.create-actions input,
+.name-input {
+  padding: 10px;
+  background: transparent;
+  color: white;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+}
+
+.title-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.title-row h2 {
+  margin: 0;
+}
+
+.name-input {
+  font-size: 1.6rem;
+  font-weight: bold;
+}
+
+/* ---------- Option picker + popup ---------- */
+.picker {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+}
+
+.convertible {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+.convertible input {
+  width: 20px;
+  height: 20px;
+}
+
+.popup {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  width: min(1080px, 92vw);
+  margin-top: 6px;
+  padding: 24px 40px;
+  background: black;
+  border: 3px solid var(--red);
+  border-radius: 4px;
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  flex: 1;
+}
+
+.tile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 175px;
+  padding: 0 0 8px;
+  background: #111;
+  color: white;
+  border: 2px solid #ddd;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.tile img {
+  width: 100%;
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  display: block;
+}
+
+.tile span {
+  margin-top: 6px;
+}
+
+.tile small {
+  color: #aaa;
+}
+
+.tile.selected {
+  outline: 4px solid white;
+  outline-offset: 2px;
+}
+
+.tile:disabled {
+  opacity: 0.25;
+  cursor: not-allowed;
+}
+
+/* ---------- 2x2 summary grid (Create, Details, Edit) ---------- */
+.summary {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.summary-tile {
+  position: relative;
+  aspect-ratio: 16 / 10;
+  background: #111;
+  overflow: hidden;
+}
+
+.summary-tile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Name + price appear on hover, like the demo */
+.summary-info {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.75);
+  color: white;
+  opacity: 0;
+  transition: opacity 0.2s;
+}
+
+.summary-tile:hover .summary-info {
+  opacity: 1;
+}
+
+.summary-info p {
+  margin: 4px 0;
+}
+
+/* ---------- View Cars list ---------- */
+.cars-list {
+  max-width: 1050px;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.car-card {
+  padding: 20px 36px;
+  background: var(--panel);
+  border-radius: 6px;
+  color: white;
+}
+
+.car-title {
+  margin: 0 0 20px;
+}
+
+.car-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.car-features {
+  flex: 1;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px 40px;
+  padding-left: 60px;
+  font-size: 0.9rem;
+}
+
+.car-features p {
+  margin: 4px 0;
+}
+
+.car-price {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+.car-price .price {
+  font-size: 1.3rem;
+}
+
+/* ---------- Phone screens ---------- */
+@media (max-width: 700px) {
+  .page-body,
+  .car-row {
+    flex-direction: column;
+  }
+
+  .summary,
+  .car-features {
+    grid-template-columns: 1fr;
+    padding-left: 0;
+  }
+
+  .popup {
+    flex-direction: column;
+    padding: 16px;
+  }
+}
+
+/* Lock tile size so global button/img styles (e.g. Pico CSS) can't stretch them */
+.popup .tiles .tile {
+  flex: 0 0 175px;
+  width: 175px;
+  max-width: 175px;
+  margin: 0;
+}
+
+.popup .tiles .tile img {
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+}
